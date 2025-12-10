@@ -1,0 +1,26 @@
+{
+	"id": "companion-module-vrowllabs-vrsync",
+	"name": "VR Sync Control",
+	"shortname": "VR Sync",
+	"description": "Controls VR Sync software, which is used for synchronized playback of videos and images on groups of VR Headsets.",
+	"version": "1.0.0",
+	"license": "MIT",
+	"repository": "git+https://github.com/bitfocus/companion-module-vrowllabs-vrsync.git",
+	"bugs": "https://github.com/bitfocus/companion-module-vrowllabs-vrsync/issues",
+	"maintainers": [
+		{
+			"name": "Joey",
+			"email": "joey@vrowl.nl"
+		}
+	],
+	"runtime": {
+		"type": "node22",
+		"api": "nodejs-ipc",
+		"apiVersion": "0.0.0",
+		"entrypoint": "../main.js"
+	},
+	"legacyIds": [],
+	"manufacturer": "VR Owl Labs",
+	"products": ["VR Sync"],
+	"keywords": ["VR Sync", "synchronized vr", "virtual reality"]
+}
