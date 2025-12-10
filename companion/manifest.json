@@ -1,5 +1,5 @@
 {
-	"id": "companion-module-vrowllabs-vrsync",
+	"id": "vrowllabs-vrsync",
 	"name": "VR Sync Control",
 	"shortname": "VR Sync",
 	"description": "Controls VR Sync software, which is used for synchronized playback of videos and images on groups of VR Headsets.",
