@@ -3,7 +3,7 @@
 	"name": "VR Sync Control",
 	"shortname": "VR Sync",
 	"description": "Controls VR Sync software, which is used for synchronized playback of videos and images on groups of VR Headsets.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"license": "MIT",
 	"repository": "git+https://github.com/bitfocus/companion-module-vrowllabs-vrsync.git",
 	"bugs": "https://github.com/bitfocus/companion-module-vrowllabs-vrsync/issues",
