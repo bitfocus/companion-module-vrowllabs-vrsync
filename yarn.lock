@@ -745,18 +745,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"companion-module-vrowllabs-vrsync@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "companion-module-vrowllabs-vrsync@workspace:."
-  dependencies:
-    "@companion-module/base": "npm:~1.11.3"
-    "@companion-module/tools": "npm:^2.3.0"
-    eslint: "npm:^9.39.1"
-    prettier: "npm:^3.7.4"
-    socket.io-client: "npm:^4.7.5"
-  languageName: unknown
-  linkType: soft
-
 "concat-map@npm:0.0.1":
   version: 0.0.1
   resolution: "concat-map@npm:0.0.1"
@@ -2150,6 +2138,18 @@ __metadata:
   checksum: 10c0/4ef57b45aa820d7ac6496e9208559986c665e49447cb072744c13b66925a362d96dd5a46c4530a6b8e203e5db5fe849369444440cb22ecfc26c679359e5dfa3c
   languageName: node
   linkType: hard
+
+"vrowllabs-vrsync@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "vrowllabs-vrsync@workspace:."
+  dependencies:
+    "@companion-module/base": "npm:~1.11.3"
+    "@companion-module/tools": "npm:^2.3.0"
+    eslint: "npm:^9.39.1"
+    prettier: "npm:^3.7.4"
+    socket.io-client: "npm:^4.7.5"
+  languageName: unknown
+  linkType: soft
 
 "watchpack@npm:^2.4.4":
   version: 2.4.4
