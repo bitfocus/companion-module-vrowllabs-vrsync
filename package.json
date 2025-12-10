@@ -1,5 +1,5 @@
 {
-	"name": "companion-module-vrowllabs-vrsync",
+	"name": "vrowllabs-vrsync",
 	"version": "1.0.0",
 	"main": "main.js",
 	"scripts": {
