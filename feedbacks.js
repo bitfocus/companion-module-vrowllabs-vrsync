@@ -11,7 +11,7 @@ module.exports = async function (self) {
 				color: combineRgb(255, 0, 0),
 			},
 			callback: (feedback) => {
-				console.log('Updating connection status feedback: ', self.vrSyncState.connected)
+				self.log('debug', `Updating connection status feedback: ${self.vrSyncState.connected}`)
 				if (self.vrSyncState.connected) {
 					return true
 				} else {

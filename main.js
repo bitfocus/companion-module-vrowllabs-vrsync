@@ -30,11 +30,11 @@ class VRSyncModuleInstance extends InstanceBase {
 		if (this.socket) {
 			this.socket.disconnect()
 		}
-		this.log('debug', 'destroy')
+		this.log('debug', `destroy`)
 	}
 
 	async configUpdated(config) {
-		console.log('config updated: ', config)
+		this.log('debug', `config updated`)
 		this.socket.disconnect()
 		this.config = config
 		this.init(config)
@@ -101,7 +101,7 @@ class VRSyncModuleInstance extends InstanceBase {
 
 	openSocket() {
 		let serverUrl = `${this.config.host}:${this.config.port}`
-		console.log('Connnecting to ', serverUrl)
+		this.log('info', `Connnecting to ${serverUrl}` )
 
 		this.socket = io(serverUrl, {
 			autoConnect: false,
@@ -131,7 +131,7 @@ class VRSyncModuleInstance extends InstanceBase {
 		this.vrSyncState.connected = true
 
 		// Update visuals in Companion to reflect the connected state
-		console.log('Connected to VR Sync')
+		this.log('info', `Connected to VR Sync`)
 		this.updateStatus(InstanceStatus.Ok, 'Connected')
 		this.checkFeedbacks()
 
@@ -145,7 +145,7 @@ class VRSyncModuleInstance extends InstanceBase {
 		this.vrSyncState.connected = false
 
 		// Update visuals in Companion to reflect the disconnected state
-		console.log('Disconnected from VR Sync')
+		this.log('info', `Disconnected from VR Sync`)
 		this.checkFeedbacks()
 		
 		// Use warning instead of error, so the error status remains reserved for crashes and such.
@@ -168,7 +168,7 @@ class VRSyncModuleInstance extends InstanceBase {
 			(message.sentUnixTimestampMs = new Date().getTime()))
 
 		if (this.config.logOutgoingMessages) {
-			console.log('Sending message: ', JSON.stringify(message))
+			this.log('debug', `Sending message: ${JSON.stringify(message)}`)
 		}
 
 		this.socket.emit('message', message)
@@ -182,7 +182,7 @@ class VRSyncModuleInstance extends InstanceBase {
 	}
 
 	playCommand(mediaID, type, loop, playDelayMs) {
-		console.log('Playing media id:', mediaID, type, loop, playDelayMs)
+		this.log('info', `Playing media id=${mediaID}, type=${type}, loop=${loop}, playDelayMs=${playDelayMs}`)
 
 		this.sendCommand([{ type: type, identifier: mediaID.toString(), playDelayMs: playDelayMs }], loop)
 
@@ -198,7 +198,7 @@ class VRSyncModuleInstance extends InstanceBase {
 	}
 
 	stopCommand() {
-		console.log('Stopping media')
+		this.log('info', `Stopping media`)
 		// A stop command is the same as a play command, but with an empty playlist
 		this.sendCommand([], false)
 		this.clearPlayStartedTimeout()
@@ -229,7 +229,7 @@ class VRSyncModuleInstance extends InstanceBase {
 	}
 
 	sendTextMessage(message) {
-		console.log('Sending text message: ', message)
+		this.log('info', `Sending text message: ${message}`)
 
 		const command = {
 			type: 'Text',
@@ -242,7 +242,7 @@ class VRSyncModuleInstance extends InstanceBase {
 	}
 
 	sendCalibrate() {
-		console.log('Calibrating Viewpoint')
+		this.log('info', `Calibrating Viewpoint`)
 		const calibrateMessage = {
 			type: 'Calibrate',
 		}
@@ -251,7 +251,7 @@ class VRSyncModuleInstance extends InstanceBase {
 
 	messageReceived(message) {
 		if (this.config.logIncomingMessages) {
-			console.log('Received message: ', JSON.stringify(message))
+			this.log('debug', `Received message: ${JSON.stringify(message)}`)
 		}
 
 		if (message.type === 'Ping' && message.sender === 'Server') {
